@@ -47,7 +47,7 @@ class RatingBoard extends StatelessWidget {
                               ),
                             ),
                             Text(
-                              "   / 5.0",
+                              "  / 5.0",
                               style: TextStyle(
                                 height: 3.h,
                                 fontSize: 18.sp,

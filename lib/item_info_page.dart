@@ -170,10 +170,10 @@ class _ItemInfoPageState extends State<ItemInfoPage>
                                 decoration: BoxDecoration(
                                   color: Colors.white,
                                   borderRadius: BorderRadius.circular(8.w),
-                                  border: Border.all(
-                                    width: 1.2,
-                                    color: Colors.white,
-                                  ),
+                                  // border: Border.all(
+                                  //   width: 1.2,
+                                  //   color: Colors.white,
+                                  // ),
                                   image: DecorationImage(
                                     image: AssetImage(
                                       "${"${path.split(".").first}_e$i"}.jpg",
@@ -527,8 +527,8 @@ class _ItemInfoPageState extends State<ItemInfoPage>
                                         // alignment: Alignment.bottomRight,
                                         children: [
                                           Container(
-                                            height: 130.w,
-                                            width: 130.w,
+                                            height: 125.w,
+                                            width: 125.w,
                                             decoration: BoxDecoration(
                                               borderRadius:
                                                   BorderRadius.circular(200.w),
