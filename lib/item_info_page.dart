@@ -19,7 +19,7 @@ class ItemInfoPage extends StatefulWidget {
 
 class _ItemInfoPageState extends State<ItemInfoPage>
     with TickerProviderStateMixin {
-  Duration get animationDuration => const Duration(milliseconds: 1500);
+  Duration get animationDuration => const Duration(milliseconds: 1000);
   String get path => widget.imagePath ?? Images.shirt_4;
   late final AnimationController _animationController;
   late final AnimationController _fadeAnimation1;
@@ -52,13 +52,13 @@ class _ItemInfoPageState extends State<ItemInfoPage>
     // _animate();
     Timer(const Duration(milliseconds: 200), () {
       _animationController.forward();
-      Timer(const Duration(milliseconds: 300), () {
+      Timer(const Duration(milliseconds: 200), () {
         _fadeAnimation1.forward();
-        Timer(const Duration(milliseconds: 200), () {
+        Timer(const Duration(milliseconds: 100), () {
           _fadeAnimation2.forward();
-          Timer(const Duration(milliseconds: 200), () {
+          Timer(const Duration(milliseconds: 100), () {
             _fadeAnimation3.forward();
-            Timer(const Duration(milliseconds: 100), () {
+            Timer(const Duration(milliseconds: 50), () {
               _fadeAnimation4.forward();
             });
           });
@@ -96,9 +96,14 @@ class _ItemInfoPageState extends State<ItemInfoPage>
             crossAxisAlignment: CrossAxisAlignment.end,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const AppBarIcon(
-                icon: CupertinoIcons.back,
-                removeCount: true,
+              GestureDetector(
+                onTap: () {
+                  Navigator.pop(context);
+                },
+                child: const AppBarIcon(
+                  icon: CupertinoIcons.back,
+                  removeCount: true,
+                ),
               ),
               SizedBox(
                 width: 170.w,
@@ -577,65 +582,71 @@ class _ItemInfoPageState extends State<ItemInfoPage>
                                         ],
                                       ),
                                       SizedBox(width: 30.w),
-                                      Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceEvenly,
-                                        children: [
-                                          SizedBox(height: 10.h),
-                                          Text(
-                                            "Thrifting_Store",
-                                            style: TextStyle(
-                                              fontSize: 25.sp,
-                                              color: Colors.black,
-                                              fontWeight: FontWeight.bold,
-                                            ),
-                                          ),
-                                          SizedBox(height: 20.h),
-                                          Text(
-                                            "Active 5 Min ago   |   96.7% Positive Feedback",
-                                            style: TextStyle(
-                                              fontSize: 18.sp,
-                                              color: Colors.grey,
-                                            ),
-                                          ),
-                                          SizedBox(height: 20.h),
-                                          Container(
-                                            height: 50.h,
-                                            width: 200.w,
-                                            decoration: BoxDecoration(
-                                              border: Border.all(
-                                                width: 1,
-                                                color: Utils.primaryColor,
+                                      Expanded(
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceEvenly,
+                                          children: [
+                                            SizedBox(height: 10.h),
+                                            Text(
+                                              "Thrifting_Store",
+                                              style: TextStyle(
+                                                fontSize: 25.sp,
+                                                color: Colors.black,
+                                                fontWeight: FontWeight.bold,
                                               ),
-                                              borderRadius:
-                                                  BorderRadius.circular(15.w),
                                             ),
-                                            child: Row(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.center,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
-                                              children: [
-                                                Icon(
-                                                  MyIcons.shop,
+                                            SizedBox(height: 20.h),
+                                            FittedBox(
+                                              child: Text(
+                                                "Active 5 Min ago   |   96.7% Positive Feedback",
+                                                maxLines: 1,
+                                                overflow: TextOverflow.ellipsis,
+                                                style: TextStyle(
+                                                  fontSize: 18.sp,
+                                                  color: Colors.grey,
+                                                ),
+                                              ),
+                                            ),
+                                            SizedBox(height: 20.h),
+                                            Container(
+                                              height: 50.h,
+                                              width: 200.w,
+                                              decoration: BoxDecoration(
+                                                border: Border.all(
+                                                  width: 1,
                                                   color: Utils.primaryColor,
-                                                  size: 30.w,
                                                 ),
-                                                SizedBox(width: 10.w),
-                                                Text(
-                                                  "Visit Store",
-                                                  style: TextStyle(
-                                                    fontSize: 19.sp,
+                                                borderRadius:
+                                                    BorderRadius.circular(15.w),
+                                              ),
+                                              child: Row(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.center,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: [
+                                                  Icon(
+                                                    MyIcons.shop,
                                                     color: Utils.primaryColor,
-                                                    // fontWeight: FontWeight.bold,
+                                                    size: 30.w,
                                                   ),
-                                                ),
-                                              ],
+                                                  SizedBox(width: 10.w),
+                                                  Text(
+                                                    "Visit Store",
+                                                    style: TextStyle(
+                                                      fontSize: 19.sp,
+                                                      color: Utils.primaryColor,
+                                                      // fontWeight: FontWeight.bold,
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
                                             ),
-                                          ),
-                                        ],
+                                          ],
+                                        ),
                                       )
                                     ],
                                   ),
@@ -1052,6 +1063,7 @@ class ProductFeature extends StatelessWidget {
             "• ",
             style: TextStyle(
               fontSize: 18.sp,
+              height: 2.h,
               color: Colors.grey,
             ),
           ),

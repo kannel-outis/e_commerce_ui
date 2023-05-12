@@ -104,12 +104,14 @@ class CarouselItem extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      "#FASHION DAY",
-                      style: TextStyle(
-                        fontSize: 18.w,
-                        letterSpacing: 1.2,
-                        height: 2.5.h,
+                    FittedBox(
+                      child: Text(
+                        "#FASHION DAY",
+                        style: TextStyle(
+                          fontSize: 18.w,
+                          letterSpacing: 1.2,
+                          height: 2.5.h,
+                        ),
                       ),
                     ),
                     FittedBox(

@@ -100,22 +100,22 @@ class RatingBoard extends StatelessWidget {
                     ),
                     RateItem(
                       value: "4",
-                      count: "710",
+                      count: "710 ",
                       rate: .5,
                     ),
                     RateItem(
                       value: "3",
-                      count: "140",
+                      count: "140 ",
                       rate: .15,
                     ),
                     RateItem(
                       value: "2",
-                      count: "10",
+                      count: "10  ",
                       rate: .07,
                     ),
                     RateItem(
                       value: "1",
-                      count: "4",
+                      count: "4   ",
                       rate: .05,
                     ),
                   ],
@@ -191,12 +191,14 @@ class RateItem extends StatelessWidget {
         Expanded(
           child: Container(
             padding: EdgeInsets.only(left: 10.w),
-            child: Text(
-              count,
-              style: TextStyle(
-                fontSize: 20.sp,
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
+            child: FittedBox(
+              child: Text(
+                count,
+                style: TextStyle(
+                  fontSize: 20.sp,
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
           ),

@@ -6,4 +6,5 @@ export 'grid_item.dart';
 export 'icon_item.dart';
 export 'my_app_bar.dart';
 export 'rating_board.dart';
+export 'scroll_behaviour.dart';
 export 'sliver_delegate.dart';

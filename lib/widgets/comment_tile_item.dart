@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:moniepoint_test/utils/utils.dart';
@@ -171,6 +173,7 @@ class _Wrap extends StatelessWidget {
       ),
       child: Text(
         label,
+        textScaleFactor: .85,
         style: TextStyle(
           fontSize: 15.sp,
           color: Utils.primaryColor,

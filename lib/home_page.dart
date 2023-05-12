@@ -23,184 +23,189 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Container(
         child: Stack(
           children: [
-            CustomScrollView(
-              slivers: [
-                SliverStack(
-                  children: [
-                    SliverPositioned.fill(
-                      child: SliverPersistentHeader(
-                        pinned: true,
-                        delegate: SliverDelegateAppBar(
-                          (op) {
-                            _opacity = op;
-                            WidgetsBinding.instance
-                                .addPostFrameCallback((timeStamp) {
-                              setState(() {});
-                            });
-                          },
-                          removeOpacity: true,
+            ScrollConfiguration(
+              behavior: const NoEffectScrollConfig(),
+              child: CustomScrollView(
+                slivers: [
+                  SliverStack(
+                    children: [
+                      SliverPositioned.fill(
+                        child: SliverPersistentHeader(
+                          pinned: true,
+                          delegate: SliverDelegateAppBar(
+                            (op) {
+                              _opacity = op;
+                              WidgetsBinding.instance
+                                  .addPostFrameCallback((timeStamp) {
+                                setState(() {});
+                              });
+                            },
+                            removeOpacity: true,
+                          ),
                         ),
                       ),
-                    ),
-                    SliverPositioned.fill(
-                      child: SliverPersistentHeader(
-                        // pinned: true,
-                        delegate: SliverDelegateAppBar(
-                          (op) {
-                            _opacity = op;
-                            WidgetsBinding.instance
-                                .addPostFrameCallback((timeStamp) {
-                              setState(() {});
-                            });
-                          },
-                          useMaxHeightAsMinHeight: true,
+                      SliverPositioned.fill(
+                        child: SliverPersistentHeader(
+                          // pinned: true,
+                          delegate: SliverDelegateAppBar(
+                            (op) {
+                              _opacity = op;
+                              WidgetsBinding.instance
+                                  .addPostFrameCallback((timeStamp) {
+                                setState(() {});
+                              });
+                            },
+                            useMaxHeightAsMinHeight: true,
+                          ),
                         ),
                       ),
-                    ),
-                  ],
-                ),
-                SliverToBoxAdapter(child: SizedBox(height: 14.h)),
-                SliverToBoxAdapter(
-                  child: Container(
-                    padding: EdgeInsets.symmetric(horizontal: Utils.padding),
-                    height: 122.h,
-                    // color: Colors.red,
-                    width: double.infinity,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: const [
-                        IconItem(
-                          icon: MyIcons.category_icon,
-                          label: "Category",
-                        ),
-                        IconItem(
-                          icon: MyIcons.airplane_icon,
-                          label: "Flight",
-                        ),
-                        IconItem(
-                          icon: MyIcons.bill,
-                          label: "Bill",
-                        ),
-                        IconItem(
-                          icon: MyIcons.data_plan,
-                          label: "Data Plan",
-                        ),
-                        IconItem(
-                          icon: MyIcons.top_up,
-                          label: "Top Up",
-                        ),
-                      ],
-                    ),
+                    ],
                   ),
-                ),
-                SliverToBoxAdapter(
-                  child: SizedBox(
-                    height: 50.h,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        AnimatedContainer(
-                          duration: const Duration(milliseconds: 500),
-                          height: 5.w,
-                          width: 15.w,
-                          margin: EdgeInsets.only(right: 3.w),
-                          decoration: BoxDecoration(
-                            color: Utils.buttonColor,
-                            borderRadius: BorderRadius.circular(50.w),
-                          ),
-                        ),
-                        AnimatedContainer(
-                          duration: const Duration(milliseconds: 500),
-                          height: 5.w,
-                          width: 5.w,
-                          margin: EdgeInsets.only(right: 3.w),
-                          decoration: BoxDecoration(
-                            color: Colors.grey.withOpacity(.5),
-                            borderRadius: BorderRadius.circular(50.w),
-                          ),
-                        ),
-                        AnimatedContainer(
-                          duration: const Duration(milliseconds: 500),
-                          height: 5.w,
-                          width: 5.w,
-                          margin: EdgeInsets.only(right: 3.w),
-                          decoration: BoxDecoration(
-                            color: Colors.grey.withOpacity(.5),
-                            borderRadius: BorderRadius.circular(50.w),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                SliverToBoxAdapter(child: SizedBox(height: 14.h)),
-                SliverPersistentHeader(
-                  pinned: true,
-                  delegate: StickyAppBarDelegate(
-                    height: 90.h,
+                  SliverToBoxAdapter(child: SizedBox(height: 14.h)),
+                  SliverToBoxAdapter(
                     child: Container(
-                      width: Utils.blockWidth * 100,
-                      height: 90.h,
-                      color: const Color(0xffEDEEF0).withOpacity(1),
                       padding: EdgeInsets.symmetric(horizontal: Utils.padding),
+                      height: 122.h,
+                      // color: Colors.red,
+                      width: double.infinity,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            "Best Sale Products",
-                            style: TextStyle(
-                              fontSize: 28.sp,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          Text(
-                            "See more",
-                            style: TextStyle(
-                              fontSize: 20.sp,
-                              fontWeight: FontWeight.bold,
-                              color: Utils.primaryColor,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-                // SliverList(
-                //   delegate: SliverChildListDelegate(
-                //     [],
-                //   ),
-                // ),
-                SliverToBoxAdapter(
-                  child: Container(
-                    width: Utils.blockWidth * 100,
-                    height: 1500.h,
-                    color: const Color(0xffEDEEF0).withOpacity(.5),
-                    padding: EdgeInsets.symmetric(horizontal: Utils.padding),
-                    child: MediaQuery.removePadding(
-                      context: context,
-                      removeTop: true,
-                      child: GridView(
-                        physics: const NeverScrollableScrollPhysics(),
-                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2,
-                          childAspectRatio: Utils.aspectRatio,
-                          crossAxisSpacing: Utils.padding / 2,
-                          mainAxisSpacing: Utils.padding,
-                        ),
                         children: const [
-                          GridItem(
-                              changeColor: true,
-                              imagePath: Images.male_long_sleeve),
-                          GridItem(imagePath: Images.shirt_1, isLiked: true),
-                          GridItem(imagePath: Images.shirt_2),
-                          GridItem(imagePath: Images.shirt_3),
+                          IconItem(
+                            icon: MyIcons.category_icon,
+                            label: "Category",
+                          ),
+                          IconItem(
+                            icon: MyIcons.airplane_icon,
+                            label: "Flight",
+                          ),
+                          IconItem(
+                            icon: MyIcons.bill,
+                            label: "Bill",
+                          ),
+                          IconItem(
+                            icon: MyIcons.data_plan,
+                            label: "Data Plan",
+                          ),
+                          IconItem(
+                            icon: MyIcons.top_up,
+                            label: "Top Up",
+                          ),
                         ],
                       ),
                     ),
                   ),
-                )
-              ],
+                  SliverToBoxAdapter(
+                    child: SizedBox(
+                      height: 50.h,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          AnimatedContainer(
+                            duration: const Duration(milliseconds: 500),
+                            height: 5.w,
+                            width: 15.w,
+                            margin: EdgeInsets.only(right: 3.w),
+                            decoration: BoxDecoration(
+                              color: Utils.buttonColor,
+                              borderRadius: BorderRadius.circular(50.w),
+                            ),
+                          ),
+                          AnimatedContainer(
+                            duration: const Duration(milliseconds: 500),
+                            height: 5.w,
+                            width: 5.w,
+                            margin: EdgeInsets.only(right: 3.w),
+                            decoration: BoxDecoration(
+                              color: Colors.grey.withOpacity(.5),
+                              borderRadius: BorderRadius.circular(50.w),
+                            ),
+                          ),
+                          AnimatedContainer(
+                            duration: const Duration(milliseconds: 500),
+                            height: 5.w,
+                            width: 5.w,
+                            margin: EdgeInsets.only(right: 3.w),
+                            decoration: BoxDecoration(
+                              color: Colors.grey.withOpacity(.5),
+                              borderRadius: BorderRadius.circular(50.w),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  SliverToBoxAdapter(child: SizedBox(height: 14.h)),
+                  SliverPersistentHeader(
+                    pinned: true,
+                    delegate: StickyAppBarDelegate(
+                      height: 90.h,
+                      child: Container(
+                        width: Utils.blockWidth * 100,
+                        height: 90.h,
+                        color: const Color(0xffEDEEF0).withOpacity(1),
+                        padding:
+                            EdgeInsets.symmetric(horizontal: Utils.padding),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              "Best Sale Products",
+                              style: TextStyle(
+                                fontSize: 28.sp,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            Text(
+                              "See more",
+                              style: TextStyle(
+                                fontSize: 20.sp,
+                                fontWeight: FontWeight.bold,
+                                color: Utils.primaryColor,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  // SliverList(
+                  //   delegate: SliverChildListDelegate(
+                  //     [],
+                  //   ),
+                  // ),
+                  SliverToBoxAdapter(
+                    child: Container(
+                      width: Utils.blockWidth * 100,
+                      height: 1500.h,
+                      color: const Color(0xffEDEEF0).withOpacity(.5),
+                      padding: EdgeInsets.symmetric(horizontal: Utils.padding),
+                      child: MediaQuery.removePadding(
+                        context: context,
+                        removeTop: true,
+                        child: GridView(
+                          physics: const NeverScrollableScrollPhysics(),
+                          gridDelegate:
+                              SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 2,
+                            childAspectRatio: Utils.aspectRatio,
+                            crossAxisSpacing: Utils.padding / 2,
+                            mainAxisSpacing: Utils.padding,
+                          ),
+                          children: const [
+                            GridItem(
+                                changeColor: true,
+                                imagePath: Images.male_long_sleeve),
+                            GridItem(imagePath: Images.shirt_1, isLiked: true),
+                            GridItem(imagePath: Images.shirt_2),
+                            GridItem(imagePath: Images.shirt_3),
+                          ],
+                        ),
+                      ),
+                    ),
+                  )
+                ],
+              ),
             ),
             MyAppBar(opacity: _opacity)
           ],
@@ -327,6 +332,7 @@ class _CarouselState extends State<Carousel>
       children: [
         PageView(
           controller: _pageController,
+          scrollBehavior: const NoEffectScrollConfig(),
           children: const [
             CarouselItem(
               imagePath: Images.hanger_white,
